@@ -39,7 +39,7 @@ public interface T#K##V#Map {
     /**
      * Returns the value that will be returned from {@link #get} or {@link #put} if no
      * entry exists for a given key. The default value is generally zero, but can be
-     * changed during construction of the collection.
+     * configured during construction of the collection.
      *
      * @return the value that represents a null key in this collection.
      */
@@ -49,7 +49,7 @@ public interface T#K##V#Map {
     /**
      * Returns the value that will be returned from {@link #get} or {@link #put} if no
      * entry exists for a given key. The default value is generally zero, but can be
-     * changed during construction of the collection.
+     * configured during construction of the collection.
      *
      * @return the value that represents a null value in this collection.
      */
