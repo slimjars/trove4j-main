@@ -20,6 +20,8 @@
 
 package gnu.trove.decorator;
 
+import gnu.trove.decorators.TIntObjectMapDecorators;
+import gnu.trove.decorators.TIntSetDecorators;
 import gnu.trove.map.TIntObjectMap;
 import gnu.trove.map.hash.TIntObjectHashMap;
 import gnu.trove.set.TIntSet;

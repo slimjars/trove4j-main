@@ -17,13 +17,13 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ///////////////////////////////////////////////////////////////////////////////
 
-package gnu.trove.set;
+package gnu.trove.sets;
 
 //////////////////////////////////////////////////
 // THIS IS A GENERATED CLASS. DO NOT HAND EDIT! //
 //////////////////////////////////////////////////
 
-
+import gnu.trove.set.T#E#Set;
 import gnu.trove.impl.sync.TSynchronized#E#Set;
 
 

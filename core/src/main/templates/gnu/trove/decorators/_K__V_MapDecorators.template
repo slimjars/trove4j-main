@@ -17,30 +17,31 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ///////////////////////////////////////////////////////////////////////////////
 
-package gnu.trove.decorator;
+package gnu.trove.decorators;
 
 //////////////////////////////////////////////////
 // THIS IS A GENERATED CLASS. DO NOT HAND EDIT! //
 //////////////////////////////////////////////////
 
-import gnu.trove.set.T#E#Set;
+import gnu.trove.decorator.T#K##V#MapDecorator;
+import gnu.trove.map.T#K##V#Map;
 
-import java.util.Set;
+import java.util.Map;
 
 
-public class T#E#SetDecorators {
+public class T#K##V#MapDecorators {
 
     // Disallow creation of instances of this class
-    private T#E#SetDecorators() { }
+    private T#K##V#MapDecorators() { }
 
     /**
-     * Wrap the given set in a decorator that uses the standard {@link java.util.Set Set}
+     * Wrap the given map in a decorator that uses the standard {@link java.util.Map Map}
      * interface.
      *
-     * @param set the <tt>T#E#Set</tt> to be wrapped
-     * @return the wrapped set.
+     * @param map the <tt>T#K##V#ObjectMap</tt> to be wrapped
+     * @return the wrapped map.
      */
-    public static Set<#ET#> wrap( T#E#Set set ) {
-        return new T#E#SetDecorator( set );
+    public static Map<#KT#,#VT#> wrap( T#K##V#Map map ) {
+        return new T#K##V#MapDecorator( map );
     }
 }

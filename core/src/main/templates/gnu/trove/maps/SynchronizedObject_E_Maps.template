@@ -17,20 +17,21 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ///////////////////////////////////////////////////////////////////////////////
 
-package gnu.trove.map;
+package gnu.trove.maps;
 
 //////////////////////////////////////////////////
 // THIS IS A GENERATED CLASS. DO NOT HAND EDIT! //
 //////////////////////////////////////////////////
 
 
-import gnu.trove.impl.sync.TSynchronized#E#ObjectMap;
+import gnu.trove.map.TObject#E#Map;
+import gnu.trove.impl.sync.TSynchronizedObject#E#Map;
 
 
-public class TSynchronized#E#ObjectMaps {
+public class TSynchronizedObject#E#Maps {
 
     // Disallow creation of instances of this class
-    private TSynchronized#E#ObjectMaps() { }
+    private TSynchronizedObject#E#Maps() { }
 
     /**
      * Returns a synchronized (thread-safe) Trove map backed by the specified
@@ -41,12 +42,12 @@ public class TSynchronized#E#ObjectMaps {
      * It is imperative that the user manually synchronize on the returned
      * map when iterating over any of its collection views:
      * <pre>
-     *  T#E#ObjectMap m = TSynchronized#E#ObjectMaps.wrap( new T#E#ObjectHashMap() );
+     *  TObject#E#Map m = TSynchronizedObject#E#Maps.wrap( new TObject#E#HashMap() );
      *      ...
-     *  T#E#Set s = m.keySet();  // Needn't be in synchronized block
+     *  Set s = m.keySet();  // Needn't be in synchronized block
      *      ...
      *  synchronized( m ) {  // Synchronizing on m, not s!
-     *      T#E#Iterator i = s.iterator(); // Must be in synchronized block
+     *      Iterator i = s.iterator(); // Must be in synchronized block
      *      while ( i.hasNext() )
      *          foo( i.next() );
      *  }
@@ -59,7 +60,7 @@ public class TSynchronized#E#ObjectMaps {
      * @param  m the map to be "wrapped" in a synchronized map.
      * @return a synchronized view of the specified map.
      */
-    public static <V> T#E#ObjectMap<V> wrap( T#E#ObjectMap<V> m ) {
-	    return new TSynchronized#E#ObjectMap<V>( m );
+    public static <K> TObject#E#Map<K> wrap( TObject#E#Map<K> m ) {
+	    return new TSynchronizedObject#E#Map<K>( m );
     }
 }

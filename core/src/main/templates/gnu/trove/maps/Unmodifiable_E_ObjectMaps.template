@@ -17,43 +17,37 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ///////////////////////////////////////////////////////////////////////////////
 
-package gnu.trove;
+package gnu.trove.maps;
 
 //////////////////////////////////////////////////
 // THIS IS A GENERATED CLASS. DO NOT HAND EDIT! //
 //////////////////////////////////////////////////
 
 
-import gnu.trove.impl.unmodifiable.TUnmodifiable#E#Collection;
+import gnu.trove.map.T#E#ObjectMap;
+import gnu.trove.impl.unmodifiable.TUnmodifiable#E#ObjectMap;
 
 
-public class TUnmodifiable#E#Collections {
+public class TUnmodifiable#E#ObjectMaps {
 
     // Disallow creation of instances of this class
-    private TUnmodifiable#E#Collections() { }
+    private TUnmodifiable#E#ObjectMaps() { }
 
     /**
-     * Returns an unmodifiable view of the specified Trove primitive collection.  This method
+     * Returns an unmodifiable view of the specified Trove primitive/Object map.  This method
      * allows modules to provide users with "read-only" access to internal
-     * collections.  Query operations on the returned collection "read through"
-     * to the specified collection, and attempts to modify the returned
-     * collection, whether direct or via its iterator, result in an
+     * maps.  Query operations on the returned map "read through"
+     * to the specified map, and attempts to modify the returned
+     * map, whether direct or via its collection views, result in an
      * <tt>UnsupportedOperationException</tt>.<p>
      *
-     * The returned collection does <i>not</i> pass the hashCode and equals
-     * operations through to the backing collection, but relies on
-     * <tt>Object</tt>'s <tt>equals</tt> and <tt>hashCode</tt> methods.  This
-     * is necessary to preserve the contracts of these operations in the case
-     * that the backing collection is a set or a list.<p>
-     *
-     * The returned collection will be serializable if the specified collection
+     * The returned map will be serializable if the specified map
      * is serializable.
      *
-     * @param  c the collection for which an unmodifiable view is to be
-     *	       returned.
-     * @return an unmodifiable view of the specified Trove primitive collection.
+     * @param  m the map for which an unmodifiable view is to be returned.
+     * @return an unmodifiable view of the specified Trove primitive/primitive map.
      */
-    public static T#E#Collection wrap( T#E#Collection c ) {
-	    return new TUnmodifiable#E#Collection( c );
+    public static <V> T#E#ObjectMap<V> wrap( T#E#ObjectMap<V> m ) {
+	    return new TUnmodifiable#E#ObjectMap<V>( m );
     }
 }

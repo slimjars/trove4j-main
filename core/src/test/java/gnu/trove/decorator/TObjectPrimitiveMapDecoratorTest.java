@@ -21,6 +21,7 @@
 package gnu.trove.decorator;
 
 import junit.framework.TestCase;
+import gnu.trove.decorators.TObjectIntMapDecorators;
 import gnu.trove.map.TObjectIntMap;
 import gnu.trove.map.hash.TObjectIntHashMap;
 

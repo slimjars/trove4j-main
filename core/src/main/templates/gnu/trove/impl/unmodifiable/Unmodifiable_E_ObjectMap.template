@@ -35,6 +35,7 @@ import gnu.trove.procedure.*;
 import gnu.trove.set.*;
 import gnu.trove.function.*;
 import gnu.trove.map.*;
+import gnu.trove.sets.*;
 
 import java.util.*;
 import java.io.Serializable;

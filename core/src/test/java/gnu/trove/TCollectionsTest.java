@@ -1,14 +1,14 @@
 package gnu.trove;
 
 import gnu.trove.list.TIntList;
-import gnu.trove.list.TUnmodifiableIntLists;
 import gnu.trove.list.array.TIntArrayList;
+import gnu.trove.lists.TUnmodifiableIntLists;
 import gnu.trove.map.TIntObjectMap;
-import gnu.trove.map.TUnmodifiableIntObjectMaps;
 import gnu.trove.map.hash.TIntObjectHashMap;
+import gnu.trove.maps.TUnmodifiableIntObjectMaps;
 import gnu.trove.set.TIntSet;
-import gnu.trove.set.TUnmodifiableIntSets;
 import gnu.trove.set.hash.TIntHashSet;
+import gnu.trove.sets.TUnmodifiableIntSets;
 import junit.framework.TestCase;
 
 

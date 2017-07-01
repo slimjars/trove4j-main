@@ -21,6 +21,7 @@
 package gnu.trove.decorator;
 
 import junit.framework.TestCase;
+import gnu.trove.decorators.TIntSetDecorators;
 import gnu.trove.set.TIntSet;
 import gnu.trove.set.hash.TIntHashSet;
 

@@ -18,7 +18,7 @@
 
 package gnu.trove;
 
-import gnu.trove.decorator.TIntListDecorators;
+import gnu.trove.decorators.TIntListDecorators;
 import gnu.trove.list.TIntList;
 import gnu.trove.list.array.TIntArrayList;
 import junit.framework.TestCase;

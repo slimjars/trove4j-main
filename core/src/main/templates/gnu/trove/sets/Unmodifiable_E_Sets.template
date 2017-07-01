@@ -17,30 +17,36 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ///////////////////////////////////////////////////////////////////////////////
 
-package gnu.trove.decorator;
+package gnu.trove.sets;
 
 //////////////////////////////////////////////////
 // THIS IS A GENERATED CLASS. DO NOT HAND EDIT! //
 //////////////////////////////////////////////////
 
-import gnu.trove.map.T#E#ObjectMap;
 
-import java.util.Map;
+import gnu.trove.set.T#E#Set;
+import gnu.trove.impl.unmodifiable.TUnmodifiable#E#Set;
 
 
-public class T#E#ObjectMapDecorators {
+public class TUnmodifiable#E#Sets {
 
     // Disallow creation of instances of this class
-    private T#E#ObjectMapDecorators() { }
+    private TUnmodifiable#E#Sets() { }
 
     /**
-     * Wrap the given map in a decorator that uses the standard {@link java.util.Map Map}
-     * interface.
+     * Returns an unmodifiable view of the specified Trove primitive set.  This method allows
+     * modules to provide users with "read-only" access to internal sets.
+     * Query operations on the returned set "read through" to the specified
+     * set, and attempts to modify the returned set, whether direct or via its
+     * iterator, result in an <tt>UnsupportedOperationException</tt>.<p>
      *
-     * @param map the <tt>T#E#ObjectMap</tt> to be wrapped
-     * @return the wrapped map.
+     * The returned set will be serializable if the specified set
+     * is serializable.
+     *
+     * @param  s the set for which an unmodifiable view is to be returned.
+     * @return an unmodifiable view of the specified Trove primitive set.
      */
-    public static <T> Map<#ET#,T> wrap( T#E#ObjectMap<T> map ) {
-        return new T#E#ObjectMapDecorator<T>( map );
+    public static T#E#Set wrap( T#E#Set s ) {
+	    return new TUnmodifiable#E#Set( s );
     }
 }

@@ -17,13 +17,14 @@
 // Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 ///////////////////////////////////////////////////////////////////////////////
 
-package gnu.trove.list;
+package gnu.trove.lists;
 
 //////////////////////////////////////////////////
 // THIS IS A GENERATED CLASS. DO NOT HAND EDIT! //
 //////////////////////////////////////////////////
 
 
+import gnu.trove.list.T#E#List;
 import gnu.trove.impl.sync.TSynchronized#E#List;
 import gnu.trove.impl.sync.TSynchronizedRandomAccess#E#List;
 
