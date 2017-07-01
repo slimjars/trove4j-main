@@ -23,7 +23,6 @@ package gnu.trove.decorator;
 import junit.framework.TestCase;
 import gnu.trove.set.TIntSet;
 import gnu.trove.set.hash.TIntHashSet;
-import gnu.trove.TDecorators;
 
 import java.util.*;
 import java.io.ByteArrayOutputStream;
@@ -58,7 +57,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testConstructors() throws Exception {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         assertNotNull( set );
 
         Integer[] ints = {1138, 42, 86, 99, 101};
@@ -68,24 +67,24 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         assertTrue( "set not a copy: " + set + ", " + copy, set.equals( copy ) );
 
         TIntSet raw_another = new TIntHashSet( 20 );
-        Set<Integer> another = TDecorators.wrap( raw_another );
+        Set<Integer> another = TIntSetDecorators.wrap( raw_another );
         another.addAll( Arrays.asList( ints ) );
         assertTrue( "set not equal: " + set + ", " + copy, set.equals( another ) );
 
         raw_another = new TIntHashSet( 2, 1.0f );
-        another = TDecorators.wrap( raw_another );
+        another = TIntSetDecorators.wrap( raw_another );
         another.addAll( Arrays.asList( ints ) );
         assertTrue( "set not equal: " + set + ", " + copy, set.equals( another ) );
 
         raw_another = new TIntHashSet( Arrays.asList( ints ) );
-        another = TDecorators.wrap( raw_another );
+        another = TIntSetDecorators.wrap( raw_another );
         assertTrue( "set not equal: " + set + ", " + copy, set.equals( another ) );
     }
 
 
     public void testIsEmpty() throws Exception {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         assertTrue( "new set wasn't empty", set.isEmpty() );
 
         set.add( 1 );
@@ -97,7 +96,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testContains() throws Exception {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         int i = 100;
         set.add( i );
         assertTrue( "contains failed", set.contains( i ) );
@@ -111,11 +110,11 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         Integer[] ints = {1138, 42, 13, 86, 99};
 
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.addAll( Arrays.asList( ints ) );
 
         TIntSet raw_other = new TIntHashSet();
-        Set<Integer> other = TDecorators.wrap( raw_other );
+        Set<Integer> other = TIntSetDecorators.wrap( raw_other );
         other.addAll( Arrays.asList( ints ) );
 
         List<Integer> ints_list = new ArrayList<Integer>();
@@ -139,7 +138,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         Integer[] failed = {42, 86, 99, 123456};
 
         TIntSet raw_failed_set = new TIntHashSet();
-        Set<Integer> failed_set = TDecorators.wrap( raw_failed_set );
+        Set<Integer> failed_set = TIntSetDecorators.wrap( raw_failed_set );
         failed_set.addAll( Arrays.asList( failed ) );
 
         List<Integer> failed_list = new ArrayList<Integer>();
@@ -165,14 +164,14 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         }
 
         raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         assertTrue( "addAll(Collection<?>) failed: " + set, set.addAll( list ) );
         for ( int element : ints ) {
             assertTrue( "contains failed: ", set.contains( element ) );
         }
 
         TIntSet raw_test_set = new TIntHashSet();
-        Set<Integer> test_set = TDecorators.wrap( raw_test_set );
+        Set<Integer> test_set = TIntSetDecorators.wrap( raw_test_set );
         assertTrue( "addAll(TIntSet) failed: " + test_set, test_set.addAll( set ) );
         for ( int element : ints ) {
             assertTrue( "contains failed: ", set.contains( element ) );
@@ -185,7 +184,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         Integer[] ints = {1138, 42, 13, 86, 99, 101};
 
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.addAll( Arrays.asList( ints ) );
 
         TIntSet other = new TIntHashSet();
@@ -194,7 +193,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         Integer[] to_retain = {13, 86, 99, 1138};
 
         TIntSet raw_retain_set = new TIntHashSet();
-        Set<Integer> retain_set = TDecorators.wrap( raw_retain_set );
+        Set<Integer> retain_set = TIntSetDecorators.wrap( raw_retain_set );
         retain_set.addAll( Arrays.asList( to_retain ) );
 
         List<Integer> retain_list = new ArrayList<Integer>();
@@ -215,7 +214,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
         // reset the set.
         raw_set = new TIntHashSet();
-        set = TDecorators.wrap( raw_set );
+        set = TIntSetDecorators.wrap( raw_set );
         set.addAll( Arrays.asList( ints ) );
         assertTrue( "retainAll(TIntSet) failed: " + set,
                 set.retainAll( retain_set ) );
@@ -231,17 +230,17 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         Integer[] ints = {1138, 42, 13, 86, 99, 101};
 
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.addAll( Arrays.asList( ints ) );
 
         TIntSet raw_other = new TIntHashSet();
-        Set<Integer> other = TDecorators.wrap( raw_other );
+        Set<Integer> other = TIntSetDecorators.wrap( raw_other );
         other.addAll( Arrays.asList( ints ) );
 
         Integer[] to_remove = {13, 86, 99, 1138};
 
         TIntSet raw_remove_set = new TIntHashSet();
-        Set<Integer> remove_set = TDecorators.wrap( raw_remove_set );
+        Set<Integer> remove_set = TIntSetDecorators.wrap( raw_remove_set );
         remove_set.addAll( Arrays.asList( to_remove ) );
 
         List<Integer> remove_list = new ArrayList<Integer>();
@@ -254,7 +253,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
         // reset the set.
         raw_set = new TIntHashSet();
-        set = TDecorators.wrap( raw_set );
+        set = TIntSetDecorators.wrap( raw_set );
         set.addAll( Arrays.asList( ints ) );
         assertTrue( "removeAll(Collection<?>) failed: " + set,
                 set.removeAll( remove_list ) );
@@ -265,7 +264,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
         // reset the set.
         raw_set = new TIntHashSet();
-        set = TDecorators.wrap( raw_set );
+        set = TIntSetDecorators.wrap( raw_set );
         set.addAll( Arrays.asList( ints ) );
         assertTrue( "removeAll(TIntSet) failed: " + set,
                 set.removeAll( remove_set ) );
@@ -278,7 +277,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testAdd() throws Exception {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         assertTrue( "add failed", set.add( 1 ) );
         assertFalse( "duplicated add modified set", set.add( 1 ) );
     }
@@ -286,7 +285,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testRemove() throws Exception {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.add( 1 );
         set.add( 2 );
         assertTrue( "One was not added", set.contains( 1 ) );
@@ -298,7 +297,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testRemoveNonExistant() throws Exception {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.add( 1 );
         set.add( 2 );
         assertTrue( "One was not added", set.contains( 1 ) );
@@ -311,7 +310,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testSize() throws Exception {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         assertEquals( "initial size was not 0", 0, set.size() );
 
         for ( int i = 0; i < 99; i++ ) {
@@ -323,7 +322,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testClear() throws Exception {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.add( 1 );
         set.add( 2 );
         set.add( 3 );
@@ -337,7 +336,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         Integer[] ints = {1138, 42, 86, 99, 101};
 
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.addAll( Arrays.asList( ints ) );
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream( baos );
@@ -355,7 +354,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testToArray() {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         Integer[] ints = {42, 1138, 13, 86, 99};
         set.addAll( Arrays.asList( ints ) );
         Object[] obj_res = set.toArray();
@@ -378,7 +377,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
 
     public void testToArrayMatchesIteratorOrder() {
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         Integer[] ints = {42, 1138, 13, 86, 99};
         set.addAll( Arrays.asList( ints ) );
         Integer[] toarray_ints = set.toArray( new Integer[ints.length] );
@@ -398,7 +397,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
     public void testToArrayWithParams() {
         int no_entry_value = Integer.MIN_VALUE;
         TIntSet raw_set = new TIntHashSet( 10, 0.5f, no_entry_value );
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
 
         Integer[] ints = {42, 1138, 13, 86, 99};
         set.addAll( Arrays.asList( ints ) );
@@ -434,7 +433,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
     public void testIterator() {
 
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.add( 1 );
         set.add( 2 );
         set.add( 3 );
@@ -465,7 +464,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
     public void testIteratorRemove() {
 
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.add( 1 );
         set.add( 2 );
         set.add( 3 );
@@ -501,10 +500,10 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
     public void testEquals() {
         Integer[] ints = {1138, 42, 86, 99, 101};
         TIntSet raw_set = new TIntHashSet();
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         set.addAll( Arrays.asList( ints ) );
         TIntSet raw_other = new TIntHashSet();
-        Set<Integer> other = TDecorators.wrap( raw_other );
+        Set<Integer> other = TIntSetDecorators.wrap( raw_other );
         other.addAll( Arrays.asList( ints ) );
 
         assertTrue( "sets incorrectly not equal: " + set + ", " + other,
@@ -513,7 +512,7 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         int[] mismatched = {72, 49, 53, 1024, 999};
         TIntSet raw_unequal = new TIntHashSet();
         raw_unequal.addAll( mismatched );
-        Set<Integer> unequal = TDecorators.wrap( raw_unequal );
+        Set<Integer> unequal = TIntSetDecorators.wrap( raw_unequal );
 
         assertFalse( "sets incorrectly equal: " + set + ", " + unequal,
                 set.equals( unequal ) );
@@ -546,10 +545,10 @@ public class TPrimitiveSetDecoratorTest extends TestCase {
         int[] ints = {1138, 42, 86, 99, 101};
         TIntSet raw_set = new TIntHashSet();
         raw_set.addAll( ints );
-        Set<Integer> set = TDecorators.wrap( raw_set );
+        Set<Integer> set = TIntSetDecorators.wrap( raw_set );
         TIntSet raw_other = new TIntHashSet();
         raw_other.addAll( ints );
-        Set<Integer> other = TDecorators.wrap( raw_other );
+        Set<Integer> other = TIntSetDecorators.wrap( raw_other );
 
         assertTrue( "hashcodes incorrectly not equal: " + set + ", " + other,
                 set.hashCode() == other.hashCode() );

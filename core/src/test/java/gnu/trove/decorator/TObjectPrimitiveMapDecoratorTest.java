@@ -23,7 +23,6 @@ package gnu.trove.decorator;
 import junit.framework.TestCase;
 import gnu.trove.map.TObjectIntMap;
 import gnu.trove.map.hash.TObjectIntHashMap;
-import gnu.trove.TDecorators;
 
 import java.util.*;
 import java.io.ByteArrayOutputStream;
@@ -58,14 +57,14 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
             vals[i] = i + 1;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         TObjectIntHashMap<String> raw_capacity =
                 new TObjectIntHashMap<String>( 20 );
         for ( int i = 0; i < element_count; i++ ) {
             raw_capacity.put( keys[i], vals[i] );
         }
-        Map<String,Integer> capacity = TDecorators.wrap( raw_capacity );
+        Map<String,Integer> capacity = TObjectIntMapDecorators.wrap( raw_capacity );
         assertEquals( raw_map, raw_capacity );
         assertEquals( map, capacity );
 
@@ -74,13 +73,13 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         for ( int i = 0; i < element_count; i++ ) {
             raw_cap_and_factor.put( keys[i], vals[i] );
         }
-        Map<String,Integer> cap_and_factor = TDecorators.wrap( raw_cap_and_factor );
+        Map<String,Integer> cap_and_factor = TObjectIntMapDecorators.wrap( raw_cap_and_factor );
         assertEquals( raw_map, raw_cap_and_factor );
         assertEquals( map, cap_and_factor );
 
         TObjectIntHashMap<String> raw_fully_specified =
                 new TObjectIntHashMap<String>( 20, 0.75f, Integer.MIN_VALUE );
-        Map<String,Integer> fully_specified = TDecorators.wrap( raw_fully_specified );
+        Map<String,Integer> fully_specified = TObjectIntMapDecorators.wrap( raw_fully_specified );
 
         for ( int i = 0; i < element_count; i++ ) {
             fully_specified.put( keys[i], vals[i] );
@@ -89,7 +88,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
 
         TObjectIntHashMap<String> raw_copy =
                 new TObjectIntHashMap<String>( raw_map );
-        Map<String,Integer> copy = TDecorators.wrap( raw_copy );
+        Map<String,Integer> copy = TObjectIntMapDecorators.wrap( raw_copy );
         assertEquals( raw_map, raw_copy );
         assertEquals( map, copy );
     }
@@ -183,7 +182,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         Integer[] vals = new Integer[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
             vals[i] = i + 1;
@@ -234,7 +233,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         }
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
         
         Map<String, Integer> source = new HashMap<String, Integer>();
         for ( int i = 0; i < element_count; i++ ) {
@@ -253,7 +252,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
             vals[i] = i + 1;
@@ -277,7 +276,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
             vals[i] = i + 1;
@@ -351,7 +350,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
             vals[i] = i + 1;
@@ -391,7 +390,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -443,7 +442,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
 
         TObjectIntMap<String> raw_map =
                 new TObjectIntHashMap<String>( element_count, 0.5f, Integer.MIN_VALUE );
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -519,7 +518,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -582,7 +581,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -633,7 +632,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -672,7 +671,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -711,7 +710,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -753,7 +752,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -804,10 +803,10 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         int[] vals = new int[element_count];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         TObjectIntMap<String> raw_map2 = new TObjectIntHashMap<String>();
-        Map<String,Integer> map2 = TDecorators.wrap( raw_map2 );
+        Map<String,Integer> map2 = TObjectIntMapDecorators.wrap( raw_map2 );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -835,7 +834,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
 
         TObjectIntMap<String> raw_map =
                 new TObjectIntHashMap<String>( element_count, 0.5f, Integer.MIN_VALUE );
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -861,7 +860,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
 
         TObjectIntMap<String> raw_map =
                 new TObjectIntHashMap<String>( element_count, 0.5f, Integer.MIN_VALUE );
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -942,7 +941,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
 
         TObjectIntMap<String> raw_map =
                 new TObjectIntHashMap<String>( element_count, 0.5f, Integer.MIN_VALUE );
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.toString( i + 1 );
@@ -953,7 +952,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
 
         TObjectIntHashMap<String> raw_fully_specified =
                 new TObjectIntHashMap<String>( 20, 0.75f, Integer.MIN_VALUE );
-        Map<String,Integer> fully_specified = TDecorators.wrap( raw_fully_specified );
+        Map<String,Integer> fully_specified = TObjectIntMapDecorators.wrap( raw_fully_specified );
 
         for ( int i = 0; i < element_count; i++ ) {
             fully_specified.put( keys[i], vals[i] );
@@ -972,7 +971,7 @@ public class TObjectPrimitiveMapDecoratorTest extends TestCase {
         String[] keys = new String[vals.length];
 
         TObjectIntMap<String> raw_map = new TObjectIntHashMap<String>();
-        Map<String,Integer> map = TDecorators.wrap( raw_map );
+        Map<String,Integer> map = TObjectIntMapDecorators.wrap( raw_map );
                 
         for ( int i = 0; i < keys.length; i++ ) {
             keys[i] = Integer.toString( vals[i] * 2 );

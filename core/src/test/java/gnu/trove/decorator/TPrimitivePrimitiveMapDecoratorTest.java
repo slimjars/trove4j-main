@@ -20,7 +20,6 @@
 
 package gnu.trove.decorator;
 
-import gnu.trove.TDecorators;
 import gnu.trove.map.TIntIntMap;
 import gnu.trove.map.TIntLongMap;
 import gnu.trove.map.hash.TIntIntHashMap;
@@ -63,21 +62,21 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
         for ( int i = 0; i < keys.length; i++ ) {
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
         assertEquals( keys.length, map.size() );
 
         TIntLongMap raw_capacity = new TIntLongHashMap( 20 );
         for ( int i = 0; i < keys.length; i++ ) {
             raw_capacity.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> capacity = TDecorators.wrap( raw_capacity );
+        Map<Integer,Long> capacity = TIntLongMapDecorators.wrap( raw_capacity );
         assertEquals( keys.length, capacity.size() );
 
         TIntLongMap raw_cap_and_factor = new TIntLongHashMap( 20, 0.75f );
         for ( int i = 0; i < keys.length; i++ ) {
             raw_cap_and_factor.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> cap_and_factor = TDecorators.wrap( raw_cap_and_factor );
+        Map<Integer,Long> cap_and_factor = TIntLongMapDecorators.wrap( raw_cap_and_factor );
         assertEquals( keys.length, cap_and_factor.size() );
 
         TIntLongMap raw_fully_specified =
@@ -85,15 +84,15 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
         for ( int i = 0; i < keys.length; i++ ) {
             raw_fully_specified.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> fully_specified = TDecorators.wrap( raw_fully_specified );
+        Map<Integer,Long> fully_specified = TIntLongMapDecorators.wrap( raw_fully_specified );
         assertEquals( keys.length, fully_specified.size() );
 
         TIntLongMap raw_copy = new TIntLongHashMap( raw_map );
-        Map<Integer,Long> copy = TDecorators.wrap( raw_copy );
+        Map<Integer,Long> copy = TIntLongMapDecorators.wrap( raw_copy );
         assertEquals( keys.length, fully_specified.size() );
 
         TIntLongMap raw_arrays = new TIntLongHashMap( keys, vals );
-        Map<Integer,Long> arrays = TDecorators.wrap( raw_arrays );
+        Map<Integer,Long> arrays = TIntLongMapDecorators.wrap( raw_arrays );
         assertEquals( keys.length, arrays.size() );
 
 
@@ -150,7 +149,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = Long.valueOf( i + 1 );
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         assertEquals( vals[10], map.get( Integer.valueOf( keys[10] ) ) );
         assertNull( map.get( Integer.valueOf( 1138 ) ) );
@@ -184,7 +183,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
         for ( int i = 0; i < keys.length; i++ ) {
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
         assertEquals( keys.length, map.size() );
         for ( int i = 0; i < keys.length; i++ ) {
             Integer key = keys[i];
@@ -203,7 +202,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
         for ( int i = 0; i < keys.length; i++ ) {
             raw_map.put( keys[i], vals[i] * 2 );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
         assertEquals( keys.length, map.size() );
 
         TIntLongMap target = new TIntLongHashMap();
@@ -248,7 +247,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
         for ( int i = 0; i < keys.length; i++ ) {
             raw_map.put( keys[i], vals[i] * 2 );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
         assertEquals( keys.length, map.size() );
 
         map.clear();
@@ -256,7 +255,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
         assertTrue( map.isEmpty() );
 
         TIntLongMap raw_empty = new TIntLongHashMap();
-        Map<Integer,Long> empty = TDecorators.wrap( raw_empty );
+        Map<Integer,Long> empty = TIntLongMapDecorators.wrap( raw_empty );
         assertEquals( empty, map );
     }
 
@@ -270,7 +269,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = Long.valueOf( keys[i] * 2 );
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         assertEquals( keys.length, map.size() );
         for ( int i = 0; i < keys.length; i++ ) {
@@ -310,7 +309,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Set<Integer> set = map.keySet();
         Integer[] sorted_keys = new Integer[keys.length];
@@ -358,7 +357,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Set<Integer> set = map.keySet();
         assertEquals( map.size(), set.size() );
@@ -388,7 +387,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Set<Integer> set = map.keySet();
         assertEquals( map.size(), set.size() );
@@ -428,7 +427,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Set<Integer> set = map.keySet();
         assertEquals( map.size(), set.size() );
@@ -474,7 +473,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Set<Integer> set = map.keySet();
         assertEquals( map.size(), set.size() );
@@ -523,7 +522,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Set<Integer> set = map.keySet();
         assertEquals( map.size(), set.size() );
@@ -563,7 +562,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Set<Integer> set = map.keySet();
         assertEquals( map.size(), set.size() );
@@ -589,7 +588,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         List<Integer> list = Arrays.asList( integer_keys );
         Set<Integer> set = map.keySet();
@@ -632,7 +631,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
     @SuppressWarnings({"ToArrayCallWithZeroLengthArrayArgument"})
     public void testKeys() {
         TIntLongMap raw_map = new TIntLongHashMap();
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         map.put( KEY_ONE, Long.valueOf( 10 ) );
         map.put( KEY_TWO, Long.valueOf( 20 ) );
@@ -656,7 +655,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
 
         int element_count = 20;
         raw_map = new TIntLongHashMap( element_count, 0.5f, Integer.MIN_VALUE, Long.MIN_VALUE );
-        map = TDecorators.wrap( raw_map );
+        map = TIntLongMapDecorators.wrap( raw_map );
         for ( int i = 0; i < element_count; i++ ) {
             map.put( Integer.valueOf( i ), Long.valueOf( i * i ) );
         }
@@ -682,7 +681,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = Long.valueOf( keys[i] * 2 );
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Collection<Long> values = map.values();
         Long[] sorted_values = new Long[keys.length];
@@ -731,7 +730,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Collection<Long> values = map.values();
         assertEquals( map.size(), values.size() );
@@ -761,7 +760,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Collection<Long> values = map.values();
         assertEquals( map.size(), values.size() );
@@ -800,7 +799,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Collection<Long> values = map.values();
         assertEquals( map.size(), values.size() );
@@ -845,7 +844,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         Collection values = map.values();
         assertEquals( map.size(), values.size() );
@@ -892,7 +891,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = Long.valueOf( keys[i] * 2 );
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         List<Long> list = Arrays.asList( vals );
         Collection<Long> set = map.values();
@@ -934,7 +933,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
 
     public void testValues() {
         TIntLongMap raw_map = new TIntLongHashMap();
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         map.put( KEY_ONE, Long.valueOf( 1 ) );
         map.put( KEY_TWO, Long.valueOf( 2 ) );
@@ -957,7 +956,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
 
         int element_count = 20;
         raw_map = new TIntLongHashMap( 20, 0.5f, Integer.MIN_VALUE, Long.MIN_VALUE );
-        map = TDecorators.wrap( raw_map );
+        map = TIntLongMapDecorators.wrap( raw_map );
         for ( int i = 0; i < element_count; i++ ) {
             map.put( i, Long.valueOf( i * i ) );
         }
@@ -981,7 +980,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
 
         TIntLongMap raw_map =
                 new TIntLongHashMap( element_count, 0.5f, Integer.MIN_VALUE, Long.MIN_VALUE );
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         for ( int i = 0; i < element_count; i++ ) {
             keys[i] = Integer.valueOf( i + 1 );
@@ -1065,25 +1064,25 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
         assertEquals( map, map );
 
         TIntIntMap raw_int_map = new TIntIntHashMap();
         for ( int i = 0; i < keys.length; i++ ) {
             raw_int_map.put( keys[i], (int) vals[i] );
         }
-        Map<Integer,Integer> int_map = TDecorators.wrap( raw_int_map );
+        Map<Integer,Integer> int_map = TIntIntMapDecorators.wrap( raw_int_map );
         assertFalse( map.equals( int_map ) );
 
         // Change a value..
         TIntLongMap raw_unequal = new TIntLongHashMap( raw_map );
-        Map<Integer,Long> unequal = TDecorators.wrap( raw_unequal );
+        Map<Integer,Long> unequal = TIntLongMapDecorators.wrap( raw_unequal );
         map.put( keys[3], vals[3] + 1 );
         assertFalse( map.equals( unequal ) );
 
         // Change length
         raw_unequal = new TIntLongHashMap( raw_map );
-        unequal = TDecorators.wrap( raw_unequal );
+        unequal = TIntLongMapDecorators.wrap( raw_unequal );
         map.put( 13, Long.valueOf( 26 ) );
         assertFalse( map.equals( unequal ) );
     }
@@ -1098,10 +1097,10 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         TIntLongMap raw_other = new TIntLongHashMap();
-        Map<Integer,Long> other = TDecorators.wrap( raw_other );
+        Map<Integer,Long> other = TIntLongMapDecorators.wrap( raw_other );
         other.putAll( map );
         assertTrue( "hashcodes incorrectly not equal: " + map + ", " + other,
                 map.hashCode() == other.hashCode() );
@@ -1110,7 +1109,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
         for ( int key : keys ) {
             raw_unequal.put( key, key );
         }
-        Map<Integer,Long> unequal = TDecorators.wrap( raw_unequal );
+        Map<Integer,Long> unequal = TIntLongMapDecorators.wrap( raw_unequal );
         assertFalse( "hashcodes unlikely equal: " + map + ", " + unequal,
                 map.hashCode() == unequal.hashCode() );
 
@@ -1119,7 +1118,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
         for ( int aRaw_mismatched : raw_mismatched ) {
             raw_mismatched_map.put( aRaw_mismatched, Long.valueOf( aRaw_mismatched * 37 ) );
         }
-        Map<Integer,Long> mismatched = TDecorators.wrap( raw_mismatched_map );
+        Map<Integer,Long> mismatched = TIntLongMapDecorators.wrap( raw_mismatched_map );
         assertFalse( "hashcodes unlikely equal: " + map + ", " + mismatched,
                 map.hashCode() == mismatched.hashCode() );
     }
@@ -1128,7 +1127,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
 
     public void testToString() {
         TIntLongMap raw_map = new TIntLongHashMap();
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
         map.put( 11, Long.valueOf( 1 ) );
         map.put( 22, Long.valueOf( 2 ) );
 
@@ -1147,7 +1146,7 @@ public class TPrimitivePrimitiveMapDecoratorTest extends TestCase {
             vals[i] = keys[i] * 2;
             raw_map.put( keys[i], vals[i] );
         }
-        Map<Integer,Long> map = TDecorators.wrap( raw_map );
+        Map<Integer,Long> map = TIntLongMapDecorators.wrap( raw_map );
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream( baos );

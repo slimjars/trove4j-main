@@ -22,7 +22,6 @@ package gnu.trove.decorator;
 
 import gnu.trove.map.TIntObjectMap;
 import gnu.trove.map.hash.TIntObjectHashMap;
-import gnu.trove.TDecorators;
 import gnu.trove.set.TIntSet;
 import gnu.trove.set.hash.TIntHashSet;
 
@@ -60,14 +59,14 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
 
         TIntObjectMap<String> raw_capacity =
                 new TIntObjectHashMap<String>(20);
         for (int i = 0; i < element_count; i++) {
             raw_capacity.put(keys[i], vals[i]);
         }
-        Map<Integer, String> capacity = TDecorators.wrap(raw_capacity);
+        Map<Integer, String> capacity = TIntObjectMapDecorators.wrap(raw_capacity);
         assertEquals(map, capacity);
 
         TIntObjectMap<String> raw_cap_and_factor =
@@ -75,7 +74,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
         for (int i = 0; i < element_count; i++) {
             raw_cap_and_factor.put(keys[i], vals[i]);
         }
-        Map<Integer, String> cap_and_factor = TDecorators.wrap(raw_cap_and_factor);
+        Map<Integer, String> cap_and_factor = TIntObjectMapDecorators.wrap(raw_cap_and_factor);
         assertEquals(map, cap_and_factor);
 
         TIntObjectMap<String> raw_fully_specified =
@@ -83,12 +82,12 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
         for (int i = 0; i < element_count; i++) {
             raw_fully_specified.put(keys[i], vals[i]);
         }
-        Map<Integer, String> fully_specified = TDecorators.wrap(raw_fully_specified);
+        Map<Integer, String> fully_specified = TIntObjectMapDecorators.wrap(raw_fully_specified);
         assertEquals(map, fully_specified);
 
         TIntObjectMap<String> raw_copy =
                 new TIntObjectHashMap<String>(raw_map);
-        Map<Integer, String> copy = TDecorators.wrap(raw_copy);
+        Map<Integer, String> copy = TIntObjectMapDecorators.wrap(raw_copy);
         assertEquals(map, copy);
     }
 
@@ -104,7 +103,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
 
         assertEquals(vals[10], map.get(Integer.valueOf(keys[10])));
         assertNull(map.get(Integer.valueOf(1138)));
@@ -134,7 +133,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
 
         for (int i = 0; i < element_count; i++) {
             assertTrue("Key should be present: " + keys[i] + ", map: " + map,
@@ -158,7 +157,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
 
         for (int i = 0; i < element_count; i++) {
             assertTrue("Value should be present: " + vals[i] + ", map: " + map,
@@ -186,7 +185,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
 
         for (int i = 0; i < element_count; i++) {
             if (i % 2 == 1) {
@@ -234,10 +233,10 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_control.put(keys[i], vals[i]);
         }
-        Map<Integer, String> control = TDecorators.wrap(raw_control);
+        Map<Integer, String> control = TIntObjectMapDecorators.wrap(raw_control);
 
         TIntObjectMap<String> raw_map = new TIntObjectHashMap<String>();
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
 
         Map<Integer, String> source = new HashMap<Integer, String>();
         for (int i = 0; i < element_count; i++) {
@@ -251,9 +250,9 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
 
     public void testPutAll() throws Exception {
         TIntObjectMap<String> raw_t = new TIntObjectHashMap<String>();
-        Map<Integer, String> t = TDecorators.wrap(raw_t);
+        Map<Integer, String> t = TIntObjectMapDecorators.wrap(raw_t);
         TIntObjectMap<String> raw_m = new TIntObjectHashMap<String>();
-        Map<Integer, String> m = TDecorators.wrap(raw_m);
+        Map<Integer, String> m = TIntObjectMapDecorators.wrap(raw_m);
         m.put(2, "one");
         m.put(4, "two");
         m.put(6, "three");
@@ -278,7 +277,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         map.clear();
@@ -301,7 +300,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Set<Integer> keyset = map.keySet();
@@ -352,7 +351,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
         assertNull(keys_array[keyset.size()]);
 
         TIntSet raw_other = new TIntHashSet(keyset);
-        Set<Integer> other = TDecorators.wrap(raw_other);
+        Set<Integer> other = TIntSetDecorators.wrap(raw_other);
         assertFalse(keyset.retainAll(other));
         other.remove(keys[5]);
         assertTrue(keyset.retainAll(other));
@@ -377,7 +376,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Set<Integer> keyset = map.keySet();
@@ -425,7 +424,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         // No argument
@@ -475,7 +474,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Collection<String> collection = map.values();
@@ -550,7 +549,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Collection<String> collection = map.values();
@@ -604,7 +603,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Collection<String> collection = map.values();
@@ -652,7 +651,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Collection<String> collection = map.values();
@@ -688,7 +687,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Collection<String> collection = map.values();
@@ -726,7 +725,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Collection<String> collection = map.values();
@@ -765,7 +764,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         Collection<String> collection = map.values();
@@ -815,7 +814,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         // No argument
@@ -861,7 +860,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
 
         TIntObjectMap<String> raw_map =
                 new TIntObjectHashMap<String>(element_count, 0.5f, Integer.MIN_VALUE);
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
 
         for (int i = 0; i < element_count; i++) {
             keys[i] = Integer.valueOf(i + 1);
@@ -954,7 +953,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         assertEquals(element_count, map.size());
 
         TIntObjectHashMap<String> raw_fully_specified =
@@ -962,7 +961,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
         for (int i = 0; i < element_count; i++) {
             raw_fully_specified.put(keys[i], vals[i]);
         }
-        Map<Integer, String> fully_specified = TDecorators.wrap(raw_fully_specified);
+        Map<Integer, String> fully_specified = TIntObjectMapDecorators.wrap(raw_fully_specified);
         assertEquals(map, fully_specified);
 
         assertFalse("shouldn't equal random object", map.equals(new Object()));
@@ -983,7 +982,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
             vals[i] = Integer.toString(i + 1);
             raw_map.put(keys[i], vals[i]);
         }
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -1000,7 +999,7 @@ public class TPrimitiveObjectMapDecoratorTest extends TestCase {
 
     public void testToString() {
         TIntObjectHashMap<String> raw_map = new TIntObjectHashMap<String>();
-        Map<Integer, String> map = TDecorators.wrap(raw_map);
+        Map<Integer, String> map = TIntObjectMapDecorators.wrap(raw_map);
         map.put(11, "One");
         map.put(22, "Two");
 

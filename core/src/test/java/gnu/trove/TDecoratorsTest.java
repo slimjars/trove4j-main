@@ -18,6 +18,7 @@
 
 package gnu.trove;
 
+import gnu.trove.decorator.TIntListDecorators;
 import gnu.trove.list.TIntList;
 import gnu.trove.list.array.TIntArrayList;
 import junit.framework.TestCase;
@@ -38,7 +39,7 @@ public class TDecoratorsTest extends TestCase {
 		list.add( 5 );
 		list.add( 6 );
 
-		List<Integer> wrapped_list = TDecorators.wrap( list );
+		List<Integer> wrapped_list = TIntListDecorators.wrap( list );
 		assertEquals( 5, wrapped_list.size() );
 		assertEquals( Integer.valueOf( 2 ), wrapped_list.get( 0 ) );
 		assertEquals( Integer.valueOf( 3 ), wrapped_list.get( 1 ) );
@@ -107,7 +108,7 @@ public class TDecoratorsTest extends TestCase {
 		list.add( 5 );
 		list.add( 6 );
 
-		List<Integer> wrapped_list = TDecorators.wrap( list );
+		List<Integer> wrapped_list = TIntListDecorators.wrap( list );
 
 		List<Integer> sublist = wrapped_list.subList( 1, 4 );
 		assertEquals( 3, sublist.size() );
