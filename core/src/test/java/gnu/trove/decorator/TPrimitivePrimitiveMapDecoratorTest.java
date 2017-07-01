@@ -24,7 +24,6 @@ import gnu.trove.map.TIntIntMap;
 import gnu.trove.map.TIntLongMap;
 import gnu.trove.map.hash.TIntIntHashMap;
 import gnu.trove.map.hash.TIntLongHashMap;
-import gnu.trove.map.hash.TIntObjectHashMap;
 import junit.framework.TestCase;
 
 import java.io.ByteArrayInputStream;
