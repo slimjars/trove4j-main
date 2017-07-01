@@ -77,7 +77,7 @@ public class TUnmodifiable#K##V#Map implements T#K##V#Map, Serializable {
 
 	public T#K#Set keySet() {
 		if ( keySet == null )
-			keySet = TCollections.unmodifiableSet( m.keySet() );
+			keySet = TUnmodifiable#K#Sets.wrap( m.keySet() );
 		return keySet;
 	}
 	public #k#[] keys() { return m.keys(); }
@@ -85,7 +85,7 @@ public class TUnmodifiable#K##V#Map implements T#K##V#Map, Serializable {
 
 	public T#V#Collection valueCollection() {
 		if ( values == null )
-			values = TCollections.unmodifiableCollection( m.valueCollection() );
+			values = TUnmodifiable#V#Collections.wrap( m.valueCollection() );
 		return values;
 	}
 	public #v#[] values() { return m.values(); }

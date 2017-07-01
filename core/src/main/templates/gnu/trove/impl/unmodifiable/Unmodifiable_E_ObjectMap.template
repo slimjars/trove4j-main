@@ -72,7 +72,7 @@ public class TUnmodifiable#E#ObjectMap<V> implements T#E#ObjectMap<V>, Serializa
 
 	public T#E#Set keySet() {
 		if ( keySet == null )
-			keySet = TCollections.unmodifiableSet( m.keySet() );
+			keySet = TUnmodifiable#E#Sets.wrap( m.keySet() );
 		return keySet;
 	}
 	public #e#[] keys() { return m.keys(); }

@@ -80,7 +80,7 @@ public class TUnmodifiableObject#E#Map<K> implements TObject#E#Map<K>, Serializa
 
 	public T#E#Collection valueCollection() {
 		if ( values == null )
-			values = TCollections.unmodifiableCollection( m.valueCollection() );
+			values = TUnmodifiable#E#Collections.wrap( m.valueCollection() );
 		return values;
 	}
 	public #e#[] values() { return m.values(); }
