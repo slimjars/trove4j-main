@@ -44,7 +44,7 @@ public class TSynchronized#E#Lists {
      * It is imperative that the user manually synchronize on the returned
      * list when iterating over it:
      * <pre>
-     *  T#E#List list = TCollections.synchronizedList( new T#E#ArrayList() );
+     *  T#E#List list = TSynchronized#E#Lists.wrap( new T#E#ArrayList() );
      *      ...
      *  synchronized( list ) {
      *      T#E#Iterator i = list.iterator(); // Must be in synchronized block

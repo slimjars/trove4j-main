@@ -41,7 +41,7 @@ public class TSynchronized#E#Collections {
      * It is imperative that the user manually synchronize on the returned
      * collection when iterating over it:
      * <pre>
-     *  T#E#Collection c = TCollections.synchronizedCollection( myCollection );
+     *  T#E#Collection c = TSynchronized#E#Collections.wrap( myCollection );
      *     ...
      *  synchronized( c ) {
      *      T#E#Iterator i = c.iterator(); // Must be in the synchronized block

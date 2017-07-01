@@ -41,7 +41,7 @@ public class TSynchronized#E#Sets {
      * It is imperative that the user manually synchronize on the returned
      * set when iterating over it:
      * <pre>
-     *  T#E#Set s = TCollections.synchronizedSet( new T#E#HashSet() );
+     *  T#E#Set s = TSynchronized#E#Sets.wrap( new T#E#HashSet() );
      *      ...
      *  synchronized(s) {
      *      T#E#Iterator i = s.iterator(); // Must be in the synchronized block
