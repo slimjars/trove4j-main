@@ -1,5 +1,10 @@
 # Version 0.0.2
 
+## Fix searching of last element in a T*LinkedList
+
+[Issue](https://github.com/slimjars/trove4j-main/issues/3),
+[Fix](https://github.com/slimjars/trove4j-main/issues/4)
+
 ## Fix UnmodifiableList equality
 
 [Issue](https://github.com/slimjars/trove4j-main/issues/1),
