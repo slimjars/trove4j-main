@@ -24,7 +24,8 @@ public class TCollectionsTest extends TestCase {
 
 		assertEquals( one, two );
 		assertEquals( uOne, uTwo );
-
+		assertEquals( one, uTwo );
+		assertEquals( uOne, two );
 	}
 
 
