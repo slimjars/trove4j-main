@@ -22,6 +22,9 @@ package gnu.trove.list.linked;
 
 import gnu.trove.list.TIntList;
 import gnu.trove.list.TLinkable;
+import gnu.trove.list.TLongList;
+import gnu.trove.lists.TUnmodifiableIntLists;
+import gnu.trove.lists.TUnmodifiableLongLists;
 import gnu.trove.procedure.TObjectProcedure;
 import junit.framework.TestCase;
 
@@ -1126,6 +1129,56 @@ public class TLinkedListTest extends TestCase {
 		assertEquals( list.indexOf( 1 ), 1 );
 		assertEquals( list.indexOf( 2 ), 2 );
 		assertEquals( list.indexOf( 3 ), 3 );
+	}
+
+	public void testIntUnmodifiableEquality() {
+		TIntList list1 = new TIntLinkedList();
+		TIntList list2 = new TIntLinkedList();
+
+		assertEquals( list1, list2 );
+		assertEquals( list1, TUnmodifiableIntLists.wrap( list2 ) );
+		assertEquals( TUnmodifiableIntLists.wrap( list1 ), list2 );
+		assertEquals( TUnmodifiableIntLists.wrap( list1 ),
+				TUnmodifiableIntLists.wrap( list2 ) );
+
+		list1.add( 1 );
+		list1.add( 2 );
+		list1.add( 3 );
+
+		list2.add( 1 );
+		list2.add( 2 );
+		list2.add( 3 );
+
+		assertEquals( list1, list2 );
+		assertEquals( list1, TUnmodifiableIntLists.wrap( list2 ) );
+		assertEquals( TUnmodifiableIntLists.wrap( list1 ), list2 );
+		assertEquals( TUnmodifiableIntLists.wrap( list1 ),
+			TUnmodifiableIntLists.wrap( list2 ) );
+	}
+
+	public void testLongUnmodifiableEquality() {
+		TLongList list1 = new TLongLinkedList();
+		TLongList list2 = new TLongLinkedList();
+
+		assertEquals( list1, list2 );
+		assertEquals( list1, TUnmodifiableLongLists.wrap( list2 ) );
+		assertEquals( TUnmodifiableLongLists.wrap( list1 ), list2 );
+		assertEquals( TUnmodifiableLongLists.wrap( list1 ),
+			TUnmodifiableLongLists.wrap( list2 ) );
+
+		list1.add( 1 );
+		list1.add( 2 );
+		list1.add( 3 );
+
+		list2.add( 1 );
+		list2.add( 2 );
+		list2.add( 3 );
+
+		assertEquals( list1, list2 );
+		assertEquals( list1, TUnmodifiableLongLists.wrap( list2 ) );
+		assertEquals( TUnmodifiableLongLists.wrap( list1 ), list2 );
+		assertEquals( TUnmodifiableLongLists.wrap( list1 ),
+			TUnmodifiableLongLists.wrap( list2 ) );
 	}
 
 
