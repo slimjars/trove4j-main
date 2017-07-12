@@ -1,5 +1,23 @@
 # Version 0.0.2
 
+## Fix Linked List implementations
+
+* [Issue](https://github.com/slimjars/trove4j-main/issues/25)
+* Fixed via [a7ccdab](https://github.com/slimjars/trove4j-main/a7ccdab90d2e5d53fcc9b303ee481fd3265f35b9)
+* Added tests via [7645f70](https://github.com/slimjars/trove4j-main/7645f703b6b17badc0653ab555ab2b07e8c43219)
+
+## Some changes still missing in this list...
+
+## Improve toArray performance for empty primitive hash sets and maps.
+
+[Issue](https://github.com/slimjars/trove4j-main/issues/9),
+[Fix](https://github.com/slimjars/trove4j-main/issues/10)
+
+## Support unsigned applets (feature request)
+
+[Issue](https://github.com/slimjars/trove4j-main/issues/7),
+[Fix](https://github.com/slimjars/trove4j-main/issues/8)
+
 ## Fix searching of last element in a T*LinkedList
 
 [Issue](https://github.com/slimjars/trove4j-main/issues/3),
