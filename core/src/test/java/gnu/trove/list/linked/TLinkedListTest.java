@@ -1096,6 +1096,20 @@ public class TLinkedListTest extends TestCase {
 		assertEquals( 0, list.binarySearch( 5 ) );
 
 		assertEquals( -2, list.binarySearch( 6 ) );
+
+		// Test for https://bitbucket.org/robeden/trove/issue/47
+		TLongList nums = new TLongLinkedList();
+		nums.add(1L);
+		nums.add(2L);
+		nums.add(3L);
+		nums.add(4L);
+		nums.add(6L);
+		nums.add(7L);
+		nums.add(8L);
+		nums.add(9L);
+		nums.add(10L);
+		nums.sort();
+		assertEquals( 3, nums.binarySearch( 4L ) );
 	}
 
 
