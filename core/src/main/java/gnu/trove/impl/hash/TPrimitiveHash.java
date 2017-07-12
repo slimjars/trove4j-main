@@ -20,8 +20,6 @@
 
 package gnu.trove.impl.hash;
 
-import gnu.trove.impl.HashFunctions;
-
 
 
 /**
