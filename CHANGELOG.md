@@ -1,4 +1,4 @@
-# Version 0.0.2
+# Version 1.0.1
 
 ## Fix Linked List implementations
 
@@ -28,7 +28,7 @@
 [Issue](https://github.com/slimjars/trove4j-main/issues/1),
 [Fix](https://github.com/slimjars/trove4j-main/issues/2)
 
-# Version 0.0.1
+# Version 1.0.0
 
 ## Initialize with sources from release 3.0.3
 
